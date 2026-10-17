@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#102a43"><title>Aluguel POA — Comparador de apartamentos</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="hero"><div class="wrap">
+<p class="eyebrow">PORTO ALEGRE · RS</p><h1>Encontre seu próximo apartamento</h1>
+<p>Cadastre anúncios manualmente e compare o custo mensal completo.</p>
+<div class="summary"><div><span>Limite mensal</span><strong>R$ 2.200</strong></div><div><span>Imóveis cadastrados</span><strong id="count">0</strong></div><div><span>Dentro do limite</span><strong id="within">0</strong></div></div>
+</div></header>
+<main class="wrap main">
+<section class="panel">
+<div class="section-heading"><div><p class="eyebrow">NOVO ANÚNCIO</p><h2>Cadastrar apartamento</h2></div><p class="muted">Os dados ficam neste navegador. Não há banco de dados.</p></div>
+<form id="listing-form"><div class="grid">
+<label class="wide">Título / identificação<input name="title" required maxlength="120" placeholder="Ex.: Apartamento de 2 dormitórios"></label>
+<label>Bairro<select name="neighborhood" required><option value="">Selecione</option><option>Menino Deus</option><option>Cristal</option><option>Tristeza</option></select></label>
+<label>Link do anúncio<input name="url" type="url" required placeholder="https://..."></label>
+<label>Aluguel (R$)<input name="rent" type="number" min="0" step="0.01" required></label>
+<label>Condomínio (R$)<input name="condo" type="number" min="0" step="0.01" value="0" required></label>
+<label>IPTU mensal (R$)<input name="tax" type="number" min="0" step="0.01" value="0" required></label>
+<label>Outras taxas mensais (R$)<input name="other" type="number" min="0" step="0.01" value="0" required></label>
+<label class="wide">Observações (opcional)<textarea name="notes" rows="2" placeholder="Custos ainda não confirmados, vaga, dormitórios etc."></textarea></label>
+</div>
+<label class="check"><input name="confirmed" type="checkbox"> Confirmei que os valores incluem todas as taxas obrigatórias conhecidas.</label>
+<div class="actions"><button type="submit">Adicionar imóvel</button><button type="reset" class="secondary">Limpar formulário</button></div></form>
+</section>
+<section class="panel"><div class="section-heading"><div><p class="eyebrow">PESQUISAR</p><h2>Abrir pesquisas no ZAP Imóveis</h2></div></div>
+<p class="muted">Os links abrem pesquisas externas para você consultar os anúncios. Este site não coleta nem importa anúncios automaticamente.</p>
+<div class="search-links">
+<a target="_blank" rel="noopener noreferrer" href="https://www.google.com/search?q=site%3Azapimoveis.com.br+apartamento+aluguel+Menino+Deus+Porto+Alegre">Pesquisar Menino Deus ↗</a>
+<a target="_blank" rel="noopener noreferrer" href="https://www.google.com/search?q=site%3Azapimoveis.com.br+apartamento+aluguel+Cristal+Porto+Alegre">Pesquisar Cristal ↗</a>
+<a target="_blank" rel="noopener noreferrer" href="https://www.google.com/search?q=site%3Azapimoveis.com.br+apartamento+aluguel+Tristeza+Porto+Alegre">Pesquisar Tristeza ↗</a>
+</div></section>
+<section class="panel"><div class="section-heading"><div><p class="eyebrow">COMPARAÇÃO</p><h2>Seus imóveis</h2></div><button id="export" class="secondary" type="button">Exportar JSON</button></div>
+<div class="filters"><label>Bairro<select id="filter-neighborhood"><option value="">Todos os bairros</option><option>Menino Deus</option><option>Cristal</option><option>Tristeza</option></select></label>
+<label>Mostrar<select id="filter-cost"><option value="all">Todos</option><option value="within">Até R$ 2.200 e confirmado</option><option value="over">Acima de R$ 2.200</option><option value="unknown">Custo não confirmado</option></select></label>
+<label class="search-field">Buscar<input id="filter-text" type="search" placeholder="Título ou observação"></label></div>
+<div id="listings" class="listing-grid"></div><p id="empty" class="empty">Nenhum imóvel cadastrado ainda. Adicione um anúncio usando o formulário acima.</p>
+<p class="footnote">O total soma aluguel + condomínio + IPTU mensal + outras taxas informadas. Valores incompletos devem ser confirmados com o anunciante. Os cadastros ficam somente neste navegador; use “Exportar JSON” para fazer backup.</p>
+</section></main>
+<footer><div class="wrap">Aluguel POA · Projeto pessoal sem banco de dados e sem coleta automática de anúncios.</div></footer>
+<script src="app.js"></script>
+</body></html>
