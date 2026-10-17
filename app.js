@@ -15,10 +15,10 @@ const slugs = {
     tristeza: "https://www.zapimoveis.com.br/aluguel/apartamentos/rs%2Bporto-alegre%2B%2Btristeza/"
   },
   vivareal: {
-    todos: "https://www.vivareal.com.br/aluguel/rs/porto-alegre/apartamento_residencial/",
-    "menino-deus": "https://www.vivareal.com.br/aluguel/rs/porto-alegre/menino-deus/apartamento_residencial/",
-    cristal: "https://www.vivareal.com.br/aluguel/rs/porto-alegre/cristal/apartamento_residencial/",
-    tristeza: "https://www.vivareal.com.br/aluguel/rs/porto-alegre/tristeza/apartamento_residencial/"
+    todos: "https://www.vivareal.com.br/aluguel/rio-grande-do-sul/porto-alegre/apartamento_residencial/",
+    "menino-deus": "https://www.vivareal.com.br/aluguel/rio-grande-do-sul/porto-alegre/bairros/menino-deus/apartamento_residencial/",
+    cristal: "https://www.vivareal.com.br/aluguel/rio-grande-do-sul/porto-alegre/bairros/cristal/apartamento_residencial/",
+    tristeza: "https://www.vivareal.com.br/aluguel/rio-grande-do-sul/porto-alegre/bairros/tristeza/apartamento_residencial/"
   },
   imovelweb: {
     todos: "https://www.imovelweb.com.br/apartamentos-aluguel-porto-alegre.html",
