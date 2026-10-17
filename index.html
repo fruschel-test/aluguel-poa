@@ -1,46 +1,62 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#102a43"><title>Aluguel POA — Comparador de apartamentos</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#102a43">
+<meta name="description" content="Pesquise apartamentos para alugar em Menino Deus, Cristal e Tristeza, em Porto Alegre, em portais e imobiliárias locais.">
+<title>Aluguel POA — Pesquisa de apartamentos</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header class="hero"><div class="wrap">
-<p class="eyebrow">PORTO ALEGRE · RS</p><h1>Encontre seu próximo apartamento</h1>
-<p>Cadastre anúncios manualmente e compare o custo mensal completo.</p>
-<div class="summary"><div><span>Limite mensal</span><strong>R$ 2.200</strong></div><div><span>Imóveis cadastrados</span><strong id="count">0</strong></div><div><span>Dentro do limite</span><strong id="within">0</strong></div></div>
-</div></header>
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">PORTO ALEGRE · RS</p>
+    <h1>Pesquise apartamentos para alugar</h1>
+    <p>Encontre anúncios em portais e imobiliárias locais. Compare os custos diretamente nos anúncios.</p>
+    <div class="summary"><div><span>Orçamento mensal total</span><strong>Até R$ 2.200</strong></div><div><span>Bairros de interesse</span><strong>Menino Deus · Cristal · Tristeza</strong></div></div>
+  </div>
+</header>
 <main class="wrap main">
-<section class="panel">
-<div class="section-heading"><div><p class="eyebrow">NOVO ANÚNCIO</p><h2>Cadastrar apartamento</h2></div><p class="muted">Os dados ficam neste navegador. Não há banco de dados.</p></div>
-<form id="listing-form"><div class="grid">
-<label class="wide">Título / identificação<input name="title" required maxlength="120" placeholder="Ex.: Apartamento de 2 dormitórios"></label>
-<label>Bairro<select name="neighborhood" required><option value="">Selecione</option><option>Menino Deus</option><option>Cristal</option><option>Tristeza</option></select></label>
-<label>Link do anúncio<input name="url" type="url" required placeholder="https://..."></label>
-<label>Aluguel (R$)<input name="rent" type="number" min="0" step="0.01" required></label>
-<label>Condomínio (R$)<input name="condo" type="number" min="0" step="0.01" value="0" required></label>
-<label>IPTU mensal (R$)<input name="tax" type="number" min="0" step="0.01" value="0" required></label>
-<label>Outras taxas mensais (R$)<input name="other" type="number" min="0" step="0.01" value="0" required></label>
-<label class="wide">Observações (opcional)<textarea name="notes" rows="2" placeholder="Custos ainda não confirmados, vaga, dormitórios etc."></textarea></label>
-</div>
-<label class="check"><input name="confirmed" type="checkbox"> Confirmei que os valores incluem todas as taxas obrigatórias conhecidas.</label>
-<div class="actions"><button type="submit">Adicionar imóvel</button><button type="reset" class="secondary">Limpar formulário</button></div></form>
-</section>
-<section class="panel"><div class="section-heading"><div><p class="eyebrow">PESQUISAR</p><h2>Abrir pesquisas no ZAP Imóveis</h2></div></div>
-<p class="muted">Os links abrem pesquisas externas para você consultar os anúncios. Este site não coleta nem importa anúncios automaticamente.</p>
-<div class="search-links">
-<a target="_blank" rel="noopener noreferrer" href="https://www.zapimoveis.com.br/aluguel/apartamentos/rs%2Bporto-alegre%2B%2Bmenino-deus/">Pesquisar Menino Deus ↗</a>
-<a target="_blank" rel="noopener noreferrer" href="https://www.zapimoveis.com.br/aluguel/apartamentos/rs%2Bporto-alegre%2B%2Bcristal/">Pesquisar Cristal ↗</a>
-<a target="_blank" rel="noopener noreferrer" href="https://www.zapimoveis.com.br/aluguel/apartamentos/rs%2Bporto-alegre%2B%2Btristeza/">Pesquisar Tristeza ↗</a>
-</div></section>
-<section class="panel"><div class="section-heading"><div><p class="eyebrow">COMPARAÇÃO</p><h2>Seus imóveis</h2></div><button id="export" class="secondary" type="button">Exportar JSON</button></div>
-<div class="filters"><label>Bairro<select id="filter-neighborhood"><option value="">Todos os bairros</option><option>Menino Deus</option><option>Cristal</option><option>Tristeza</option></select></label>
-<label>Mostrar<select id="filter-cost"><option value="all">Todos</option><option value="within">Até R$ 2.200 e confirmado</option><option value="over">Acima de R$ 2.200</option><option value="unknown">Custo não confirmado</option></select></label>
-<label class="search-field">Buscar<input id="filter-text" type="search" placeholder="Título ou observação"></label></div>
-<div id="listings" class="listing-grid"></div><p id="empty" class="empty">Nenhum imóvel cadastrado ainda. Adicione um anúncio usando o formulário acima.</p>
-<p class="footnote">O total soma aluguel + condomínio + IPTU mensal + outras taxas informadas. Valores incompletos devem ser confirmados com o anunciante. Os cadastros ficam somente neste navegador; use “Exportar JSON” para fazer backup.</p>
-</section></main>
-<footer><div class="wrap">Aluguel POA · Projeto pessoal sem banco de dados e sem coleta automática de anúncios.</div></footer>
-<script src="app.js"></script>
-</body></html>
+  <section class="panel">
+    <div class="section-heading">
+      <div><p class="eyebrow">PORTAIS IMOBILIÁRIOS</p><h2>Pesquisar anúncios</h2></div>
+      <p class="muted">Cada link abre o portal em outra aba. Os resultados e filtros são controlados pelo próprio site.</p>
+    </div>
+    <div class="search-grid">
+      <article class="search-card featured">
+        <h3>ZAP Imóveis</h3><p>Pesquise diretamente por bairro.</p>
+        <div class="link-list">
+          <a href="https://www.zapimoveis.com.br/aluguel/apartamentos/rs%2Bporto-alegre%2B%2Bmenino-deus/" target="_blank" rel="noopener noreferrer">Menino Deus ↗</a>
+          <a href="https://www.zapimoveis.com.br/aluguel/apartamentos/rs%2Bporto-alegre%2B%2Bcristal/" target="_blank" rel="noopener noreferrer">Cristal ↗</a>
+          <a href="https://www.zapimoveis.com.br/aluguel/apartamentos/rs%2Bporto-alegre%2B%2Btristeza/" target="_blank" rel="noopener noreferrer">Tristeza ↗</a>
+        </div>
+      </article>
+      <article class="search-card"><h3>Viva Real</h3><p>Portal de anúncios de imóveis.</p><a class="search-button" href="https://www.vivareal.com.br/aluguel/rio-grande-do-sul/porto-alegre/" target="_blank" rel="noopener noreferrer">Pesquisar no Viva Real ↗</a></article>
+      <article class="search-card"><h3>Imovelweb</h3><p>Portal de anúncios de imóveis.</p><a class="search-button" href="https://www.imovelweb.com.br/apartamentos-aluguel-porto-alegre-rs.html" target="_blank" rel="noopener noreferrer">Pesquisar no Imovelweb ↗</a></article>
+    </div>
+  </section>
+  <section class="panel">
+    <div class="section-heading"><div><p class="eyebrow">IMOBILIÁRIAS LOCAIS</p><h2>Pesquisar direto nas imobiliárias</h2></div></div>
+    <div class="search-grid">
+      <article class="search-card"><h3>Auxiliadora Predial</h3><p>Imóveis residenciais para alugar em Porto Alegre.</p><a class="search-button" href="https://www.auxiliadorapredial.com.br/alugar/residencial/rs%2Bporto-alegre" target="_blank" rel="noopener noreferrer">Pesquisar imóveis ↗</a></article>
+      <article class="search-card"><h3>BRIDGE Imóveis</h3><p>Busca de imóveis para locação.</p><a class="search-button" href="https://www.bridgeimoveis.com.br/busca/alugar" target="_blank" rel="noopener noreferrer">Pesquisar imóveis ↗</a></article>
+      <article class="search-card"><h3>Guarida</h3><p>Apartamentos residenciais para alugar em Porto Alegre.</p><a class="search-button" href="https://guarida.com.br/busca/alugar/residencial/porto-alegre-rs/apartamento" target="_blank" rel="noopener noreferrer">Pesquisar imóveis ↗</a></article>
+      <article class="search-card"><h3>Crédito Real</h3><p>Portal de locações e filtros de imóveis.</p><a class="search-button" href="https://www.creditoreal.com.br/" target="_blank" rel="noopener noreferrer">Abrir site e pesquisar ↗</a></article>
+      <article class="search-card"><h3>Foxter</h3><p>Pesquise ofertas e use os filtros de locação.</p><a class="search-button" href="https://www.foxterciaimobiliaria.com.br/" target="_blank" rel="noopener noreferrer">Abrir site e pesquisar ↗</a></article>
+      <article class="search-card"><h3>Cilar Imóveis</h3><p>Apartamentos para alugar em Porto Alegre.</p><a class="search-button" href="https://www.cilarimoveis.com.br/imoveis/para-alugar/apartamento%2Bapartamento-garden/porto-alegre" target="_blank" rel="noopener noreferrer">Pesquisar imóveis ↗</a></article>
+      <article class="search-card"><h3>Barcellos</h3><p>Imóveis para locação em Porto Alegre e região.</p><a class="search-button" href="https://www.barcellos.com.br/imoveis-para-locacao.php" target="_blank" rel="noopener noreferrer">Pesquisar imóveis ↗</a></article>
+      <article class="search-card"><h3>Portal Administração de Imóveis</h3><p>Pesquise apartamentos e outras opções para alugar.</p><a class="search-button" href="https://www.portalrs.com.br/" target="_blank" rel="noopener noreferrer">Abrir site e pesquisar ↗</a></article>
+      <article class="search-card"><h3>Porto Imóveis</h3><p>Catálogo de imóveis para locação.</p><a class="search-button" href="https://www.portoimoveisrs.com.br/locacao" target="_blank" rel="noopener noreferrer">Pesquisar imóveis ↗</a></article>
+      <article class="search-card"><h3>Paesi Imóveis</h3><p>Imóveis para alugar em Porto Alegre e região.</p><a class="search-button" href="https://www.paesi.com.br/locacao" target="_blank" rel="noopener noreferrer">Pesquisar imóveis ↗</a></article>
+    </div>
+  </section>
+  <section class="panel note-panel">
+    <h2>Como usar seu limite de R$ 2.200</h2>
+    <p>Ao abrir cada portal, selecione o bairro desejado e confira o <strong>custo mensal total</strong>: aluguel + condomínio + IPTU + outras taxas obrigatórias. Alguns portais filtram apenas o aluguel, então confirme os encargos no anúncio antes de considerar o imóvel dentro do orçamento.</p>
+    <p class="muted">Este site apenas abre as pesquisas oficiais. Não coleta anúncios automaticamente, não salva imóveis e não usa banco de dados.</p>
+  </section>
+</main>
+<footer><div class="wrap">Aluguel POA · Pesquisa simples, sem cadastro de imóveis e sem banco de dados.</div></footer>
+</body>
+</html>
