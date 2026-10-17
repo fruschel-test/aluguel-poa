@@ -1,0 +1,17 @@
+name: Manutenção do projeto
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  maintenance:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verificar estrutura estática
+        run: |
+          test -f index.html
+          test -f app.js
+          test -f styles.css
+          echo "Estrutura estática validada. Nenhuma coleta de anúncios foi executada."
